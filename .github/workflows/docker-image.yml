@@ -37,5 +37,6 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
         
     - name: execute command
-      run: apt install -y sshpass
-      run: sshpass -p "${secrets.PASSWORD}" ssh -o StrictHostKeyChecking=no deployer@34.124.171.148:65432 ls
+      run: |
+         apt install -y sshpass
+         sshpass -p "${secrets.PASSWORD}" ssh -o StrictHostKeyChecking=no deployer@34.124.171.148:65432 ls
