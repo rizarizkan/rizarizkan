@@ -38,5 +38,4 @@ jobs:
         
     - name: execute command
       run: |
-         apt install -y sshpass
          sshpass -p "${secrets.PASSWORD}" ssh -o StrictHostKeyChecking=no deployer@34.124.171.148:65432 ls
