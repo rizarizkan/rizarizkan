@@ -44,5 +44,5 @@ jobs:
         command: ls -a
         host: ${{ secrets.HOST }}
         port: ${{ secrets.PORT }}
-        password: ${{ secrets.PASSWORD }}
+        privateKey: ${{ secrets.PRIVATE_KEY }}
         username: deployer
