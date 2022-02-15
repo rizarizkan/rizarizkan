@@ -38,11 +38,6 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         
-    - name: ls -a via ssh
-      uses: garygrossgarten/github-action-ssh@release
-      with:
-        command: ls -a
-        host: ${{ secrets.HOST }}
-        port: ${{ secrets.PORT }}
-        privateKey: ${{ secrets.PRIVATE_KEY }}
-        username: deployer
+    - name: execute command
+      run: apt install -y sshpass
+      run: sshpass -p "${secrets.PASSWORD}" ssh -o StrictHostKeyChecking=no deployer@34.124.171.148:65432 ls
