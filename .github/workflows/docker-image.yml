@@ -38,4 +38,4 @@ jobs:
         
     - name: execute command
       run: |
-         sshpass -p "${secrets.PASSWORD}" ssh -o StrictHostKeyChecking=no deployer@34.124.171.148:65432 ls
+         sshpass -p "${{secrets.PASSWORD}}" ssh -p 65432 -o StrictHostKeyChecking=no deployer@34.124.171.148 ls
