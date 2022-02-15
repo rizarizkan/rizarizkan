@@ -38,11 +38,11 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
+    - name: ls -a via ssh
+      uses: garygrossgarten/github-action-ssh@release
       with:
+        command: ls -a
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY_SSH }}
         port: ${{ secrets.PORT }}
-        script: sh test.sh
+        password: ${{ secrets.PASSWORD }}
+        username: deployer
